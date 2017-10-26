@@ -90,6 +90,10 @@ $(document).ready(function(){
         // console.log(triviaQuestions);      
       
     });
+
+    $("#questionsSection").hide();
+    $("#answersSection").hide();
+
 });
 
 

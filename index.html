@@ -1,123 +1,125 @@
-<!doctype html>
-<html class="no-js" lang="">
-    <head>
-        <meta charset="utf-8">
-        
-        <title>Trivia Game</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <!-- <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"> -->
-		<link rel="stylesheet" href="./assets/css/reset.css"> 
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Historical Trivia</title>
+  <meta name="description" content="">
+
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <link rel="stylesheet" href="./assets/css/reset.css"> 
+
         <!-- Latest compiled and minified CSS -->
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-		<link rel="stylesheet" href="./assets/css/style.css"> 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="./assets/css/style.css"> 
 
-    </head>
-    <body>
-        <div class="container myContainer">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Tangerine" rel="stylesheet">
 
-    		<!-- Game Title -->
-    		<div class="row">
-    				<div class="col-md-3 col-sm-3 col-xs-3">
-    				</div>
-		      				
-	    			<div class="col-md-9 col-sm-9 col-xs-9 page-header myPageHeader">
-	    				<!-- <img  src="./assets/images/crystal_logo.png" alt=" crystal game logo"> -->
-	    				<h1>Historical Trivia Game!</h1>
-	    			</div>
-	    	</div>
-	    		
-    		<!-- First Row -->
-    		<div class="row">
+  <!-- Material Design Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-    			<div class="col-md-3 col-sm-3 col-xs-3">
-    			</div>
-    			<div  class="col-md-9 col-sm-9 col-xs-9 jumbotron" id="myJumbotron">
-    				<div id="directions">
-		    			<p>
-	    					You will be given a random number at the start of the game.
-	    				</p>
-	    				<p>
-	    					There are four crystals below. By clicking on a crystal you will add a specific amount of points to your total score.
-						</p>
-						<p>
-							You win the game by matching your total score to the random number chosen by the game.  You lose the game if your total score goes above this random number.
-						</p>
-						<p>
-							The value of each crystal is hidden from you until you click on it.
-						</p>
-						<p>
-							Each time the game starts, it will change the values of each crystal.
-						</p>
-					</div>
-    			</div>
-    			
-    		</div> <!-- End of First Row -->
 
-    		<!-- Second Row -->
-    		<div class="row">
-				<div class="col-md-3 col-sm-3 col-xs-3">
-	    		</div>
-	    		<div class="col-md-6 col-sm-6 col-xs-6 panel panel-default panel-body" id="gameRandomBox">
-	    				<span id="num2Guess"> </span>
-	    		</div>
-	    		<div class="col-md-3 col-sm-3 col-xs-3">
-	    			<div class="row"> <!-- First sub row -->
-	    				<div class="col-md-12 col-sm-12 col-xs-6 panel panel-default panel-body statsBox" id="winsBox">
-	    					<span class="statsNum" id="numWins"> </span>
-	    				</div>
-	    			</div>
-	    			<div class="row"> <!-- Second sub row -->
-	    				<div class="col-md-12 col-sm-12 col-xs-6 panel panel-default panel-body statsBox">
-	    					<span class="statsNum" id="numLosses"> </span>
-	    				</div>
-	    			</div>
-	    		</div>
-	    	</div> <!-- End of Second Row -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+</head>
 
-	    	<!-- Third Row for the Gem images  -->
-	    	<div class="row">
-	    		<div class="col-md-3 col-sm-3 col-xs-3">
-	    		</div>
-	    		<div class="col-md-6 col-sm-6 cos-xs-6">
-	    			<div class="row"> 
-						<div class="col-md-3 col-xs-3 col-xm-3 leftJustify">
-		        			<img class="img-responsive thumbnail myThumbnail gemstone" id="amethyst" value="amethyst" src="./assets/images/amethyst_100px.jpg" alt="amethyst">
-	  					</div>
-	  					<div class="col-md-3 col-xs-3 col-xm-3">
-		        				<img class="img-responsive thumbnail myThumbnail gemstone" id="emerald" value="emerald" src="./assets/images/emerald_100px.png" alt="emerald">
-	  					</div>
-		 				<div class="col-md-3 col-xs-3 col-xm-3">
-		        				<img class="img-responsive thumbnail myThumbnail gemstone" id="ruby" value="ruby" src="./assets/images/ruby_100px.jpg" alt="ruby">
-		  				</div>
-		  				<div class="col-md-3 col-xs-3 col-xm-3">
-		        				<img class="img-responsive thumbnail myThumbnail gemstone" id="sapphire" value="sapphire" src="./assets/images/sapphire_100px.jpg" alt="sapphire">
-		  				</div>
-		  			</div>
-	    		</div>
-			</div> 
+<body class="bg">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-2 col-sm-2">
+      </div>
+      <div class="col-xs-10 col-sm-8  pageTitle">
+        <div>Historical Trivia</div>
+      </div>
+    </div>
 
-			<div class="row">
-				<div class="col-md-3 col-sm-3 col-xs-3">
-	    		</div>
-	    		<div class="col-md-6 col-sm-6 cos-xs-6 leftJustify">
-	    			<div class="panel panel-heading myPanel">
-    						<span class="panel-title statsNum">Your Total Score Is: </span>
-  					</div>
-  					<div class="panel-body myPanel">
-    						<span class="statsNum" id="userScore"> </span>
-  					</div>
-				</div>
-	    		
+    <!-- Row for header -->
+    <div class="row">
+      <div class="col-xs-2 col-sm-2">
+      </div>
+      <div class="col-xs-6 col-sm-8  panel panel-default myPanel  panel-relative">
+        <span id="startInstructions">Test your historical knowledge!</span>
+      </div>
+      <div class="col-xs-4 col-sm-2">
+	        <div class="row">
+		        <div class="col-xs-8">
+		          <button type="button" class="btn btn-default btnLarge btn-primary"><i class="material-icons right">star</i>
+		            Click to begin
+		          </button>
+		        </div>
+	       </div>
+	       <div class="row">
+		        <div class="col-xs-8">
+		          <button type="button" class="btn btn-default  btnLarge btn-primary"><i class="material-icons right">star</i>
+		            Click for help
+		          </button>
+		        </div>
+	       </div>
+      </div>
+  </div>
+  <!-- End Header Row -->
 
-			</div> <!-- End of Fourth Row -->
-    		
-		</div> <!-- End container -->
-        
+  <!-- Row for Questions -->
+  <div class="row" id="questionsSection">
+  	  <div class="col-xs-2 col-sm-2">
+      </div>
+  	  <div class="col-xs-6 col-sm-8 panel panel-default panel-relative" id="qPanel">
+        <span id="myQuestion">Which infamous European traitor was known as 'the last person to enter Parliament with honest intentions'?</span>
+      </div>  	
+      <div class="col-xs-4 col-sm-2">
+	        <div class="row">
+		        <div class="col-xs-8 panel panel-default panel-relative" id="timerPanel">
+		            <span id="myTimer">Timer: 00:00</span>
+		        </div>
+	       </div>
+	
+      </div>
+  </div>
+  <!-- End of the Row for Questions -->
 
-                 
-        <!-- jQuery CDN -->
+<!-- Row for Answers -->
+  <div class="row" id="answersSection">
+	  <div class="col-xs-2 col-sm-2">
+	  </div>
+	  <div class="col-xs-4 col-sm-6">
+	  	<!-- The 4 answer choices go in these 4 sub rows -->
+	  	<div class="row">
+  	  		<div class="col-xs-6">
+  	  			<button type="button" class="btn btn-default  btnLarge btn-primary btn-block answerChoice" id="answer1">Guy Fawkes</button>
+	  		</div>
+	  	</div>
+	  	<div class="row">
+	  		<div class="col-xs-6">
+  	  			<button type="button" class="btn btn-default  btnLarge btn-primary btn-block answerChoice" id="answer2">Francis Tresham</button>
+	  		</div>
+	  	</div>
+	    <div class="row">
+	  		<div class="col-xs-6">
+  	  			<button type="button" class="btn btn-default  btnLarge btn-primary btn-block answerChoice" id="answer3">Everard Digby</button>
+	  		</div>
+	  	</div>
+		<div class="row">
+	  		<div class="col-xs-6">
+  	  			<button type="button" class="btn btn-default  btnLarge btn-primary btn-block answerChoice" id="answer4">Robert Catesby</button>
+	  		</div>
+	  	</div>
+	  	
+	  </div>  
+	  <!-- End of the Column containing the 4 answer sub rows -->
+	  
+  </div>
+  <!-- End of the Row for Answers -->
+
+
+
+	
+</div>
+
+
+
+    <!-- jQuery CDN -->
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
       <!-- Bootstrap JavaScript CDN -->
@@ -125,5 +127,7 @@
 
       <!-- Trivia Questions Game JavaScript -->
       <script src="./assets/javascript/app.js"></script>
-    </body>
+
+</body>
+
 </html>

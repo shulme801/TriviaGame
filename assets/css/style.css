@@ -8,15 +8,131 @@
 /* Component Styles Section*/
 /*------------------------------------------*/
 
-body {
-  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+body, html {
+  font-family: 'Open Sans', sans-serif;
+  font-family: 'Tangerine', cursive;
   font-size: 14px;
   line-height: 25px;
   color: #000000;
-  background-image: url('../images/wood_pattern.png');
+  height: 100%;
 }
 
+.bg {
+    /* The image used */
+    background-image: url("../images/cornwallis_surrender.jpg");
 
+    /* Full height */
+    height: 100%; 
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.pageTitle {
+  font-family: 'Tangerine', cursive;
+  font-size: 3em;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  /*text-align: center;*/
+  text-shadow: 4px 4px 4px #aaa;
+  /*color: #a84434;*/
+  color: #ffe333;
+  margin-top: 50px;
+}
+
+.myPanel {
+  background-color: #f6f5dd;
+  margin-bottom: 2px;
+  font-family: 'Open Sans', sans-serif;
+  line-height: 15px;
+  font-size: .75em;
+}
+
+.answerChoice {
+  background-color: #f6f5dd;
+  margin-bottom: 2px;
+  font-family: 'Open Sans', sans-serif;
+  line-height: 15px;
+  font-size: .75em;
+  display: inline-block;
+  float: left;
+  color: #000000;
+  vertical-align: middle;
+}
+
+#answersSection {
+  margin-top: 100px;
+  margin-left: -36px;
+}
+
+#startInstructions {
+  margin-top: 0;
+}
+
+#myQuestion {
+  margin-top: 0;
+  font-family: 'Open Sans', sans-serif;
+  line-height: 15px;
+  font-size: .75em;
+}
+
+#timerPanel {
+  margin-left: 15px;
+  height: 75px;
+  width: 85%;
+  background-color: #f6f5dd;
+  font-family: 'Opens Sans', sans-serif;
+}
+
+.btnLarge {
+    border-radius: 6px;
+    /*border: #000000 2px solid;*/
+    border: none;
+    line-height: 30px;
+    color: #000000;
+    background-color: #f6f5dd;;
+    font-family: 'Open Sans', sans-serif;
+    margin-bottom: 6px;
+}
+
+.timerPanel {
+    border-radius: 6px;
+    
+    border: none;
+    line-height: 30px;
+    color: #000000;
+    background-color: #f6f5dd;;
+    font-family: 'Open Sans', sans-serif;
+    margin-bottom: 6px;
+}
+
+#myTimer {
+  font-size: 1.25em;
+  
+}
+.btnLarge:hover {
+    color: #00004d;
+    border: #a0004d 2px solid;
+    /*color: #a84434;
+    border: #a84434 2px solid;*/
+}
+
+.footer {
+  position: absolute;
+  bottom: 10px;
+  left: 30%;
+  width: 80%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  background-color: #f6f5dd;
+}
+
+.footerText {
+  clear: both;
+  text-align: center;
+}
 
 .myPageHeader {
   background-color: #ffffff;
@@ -34,10 +150,6 @@ body {
   left: 10px;
 }
 
-.myPanel {
-  background-color: #4cfcf2;
-  margin-bottom: 2px;
-}
 
 .myThumbnail: {
   height: 100px;
@@ -96,4 +208,49 @@ body {
 
 #winsBox {
   margin-bottom: 2px;
+}
+
+
+@media only screen and (min-width: 1024px) {
+  /*iPro tablet or larger*/
+    .pageTitle {
+      font-size: 120px;
+      margin-top: 75px;
+      margin-bottom: 40px;
+    }
+
+    .myPanel {
+        background-color: #f6f5dd;
+        margin-bottom: 2px;
+        font-size: 2em;
+        height: 100px;
+        padding: 5px;
+        padding-left: 18px;
+        padding-top: 15px;
+        line-height: 30px;
+        /*text-align: center;*/
+    }
+
+    #qPanel {
+        background-color: #f6f5dd;
+        margin-bottom: 5px;
+
+        font-size: 1em;
+        height: 75px;
+        padding: 5px;
+        padding-left: 18px;
+        padding-top: 15px;
+       
+    }
+
+    #myQuestion {
+      font-size: 1em;
+      padding-left: 0px;
+      padding-top: 15px;
+
+    }
+
+    
+
+    
 }
