@@ -17,13 +17,14 @@ body, html {
   height: 100%;
 }
 
+/*---------------------------------------*/
+/*Classes*/
+/*---------------------------------------*/
 .bg {
     /* The image used */
-    background-image: url("../images/cornwallis_surrender.jpg");
-
+    background-image: url("../images/cornwallis_surrender.jpg"); /*John Trumbull painted in 1820; original in US Capitol; unlicensed image from Wikipedia
     /* Full height */
     height: 100%; 
-
     /* Center and scale the image nicely */
     background-position: center;
     background-repeat: no-repeat;
@@ -62,12 +63,51 @@ body, html {
   vertical-align: middle;
 }
 
-#answersSection {
-  margin-top: 100px;
-  margin-left: -36px;
+.btnLarge {
+    border-radius: 6px;
+    /*border: #000000 2px solid;*/
+    border: none;
+    line-height: 30px;
+    color: #000000;
+    background-color: #f6f5dd;;
+    font-family: 'Open Sans', sans-serif;
+    margin-bottom: 6px;
 }
 
-#startInstructions {
+.btnLarge:hover {
+    color: #00004d;
+    border: #a0004d 2px solid;
+    /*color: #a84434;
+    border: #a84434 2px solid;*/
+}
+
+/*This footer is for future development*/
+.footer {
+  position: absolute;
+  bottom: 10px;
+  left: 30%;
+  width: 80%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  background-color: #f6f5dd;
+}
+
+.footerText {
+  clear: both;
+  text-align: center;
+}
+
+
+/*---------------------------------------*/
+/*IDs that need some styling*/
+/*---------------------------------------*/
+
+#answersSection {
+  margin-top: 150px;
+  margin-left: auto;
+}
+
+#userInstructions {
   margin-top: 0;
 }
 
@@ -86,129 +126,36 @@ body, html {
   font-family: 'Opens Sans', sans-serif;
 }
 
-.btnLarge {
-    border-radius: 6px;
-    /*border: #000000 2px solid;*/
-    border: none;
-    line-height: 30px;
-    color: #000000;
-    background-color: #f6f5dd;;
-    font-family: 'Open Sans', sans-serif;
-    margin-bottom: 6px;
-}
-
-.timerPanel {
-    border-radius: 6px;
-    
-    border: none;
-    line-height: 30px;
-    color: #000000;
-    background-color: #f6f5dd;;
-    font-family: 'Open Sans', sans-serif;
-    margin-bottom: 6px;
-}
-
-#myTimer {
-  font-size: 1.25em;
+#myTimer, #rightAnswers,#wrongAnswers {
+  font-size: 1em;
   
 }
-.btnLarge:hover {
-    color: #00004d;
-    border: #a0004d 2px solid;
-    /*color: #a84434;
-    border: #a84434 2px solid;*/
-}
 
-.footer {
-  position: absolute;
-  bottom: 10px;
-  left: 30%;
-  width: 80%;
-  /* Set the fixed height of the footer here */
-  height: 60px;
-  background-color: #f6f5dd;
-}
-
-.footerText {
-  clear: both;
-  text-align: center;
-}
-
-.myPageHeader {
-  background-color: #ffffff;
-}
-
-.myPageHeader img {
-  width: 100px;
-  height: 100px;
-  float: left;
-}
-
-.myPageHeader h1{
-  position: relative;
-  top: 18px;
-  left: 10px;
-}
-
-
-.myThumbnail: {
-  height: 100px;
-  width: 100px;
-  float: left;
-  margin-left: 0;
-  padding-left: 0;
-}
-
-.statsBox {
-  height: 50px;
-  background-color: #4cfcf2;
-}
-
-.statsNum {
-  margin-top: 30px;
-  margin-left: 10px;
-  text-align: center;
-  font-size: 1.5em;
-  color: blue;
-  font-weight: 500;
-}
-
-.leftJustify {
-  padding-left: 0;
-}
-
-
-#myJumbotron {
-  background-color: #faebd7;
-  color: blue;
-  padding: 10px;
-}
-
-#directions {
-  clear:both;
-  padding: 5px;
-  margin-top: 5px;
-  
-}
-#gameRandomBox {
-  background-color: #32cd32;
-  height: 100px;
-
-}
-
-#num2Guess {
-  margin-top: 20px;
-  margin-bottom: 100px;
-  margin-left: 20px;
-  line-height: 50px;
-  color: blue;
-  font-size: 3em;
-  font-weight: 700;
-}
-
-#winsBox {
+#timeExpired{
   margin-bottom: 2px;
+  font-family: 'Open Sans', sans-serif;
+  line-height: 15px;
+  font-size: 1em;
 }
+
+#rightAnswer{
+  margin-bottom: 2px;
+  font-family: 'Open Sans', sans-serif;
+  line-height: 15px;
+  font-size: 1em;
+}
+
+#wrongAnswer {
+  margin-bottom: 2px;
+  font-family: 'Open Sans', sans-serif;
+  line-height: 15px;
+  font-size: 1em;
+}
+
+
+/*---------------------------------------*/
+/*Media Queries for Responsive Design    */
+/*---------------------------------------*/
 
 
 @media only screen and (min-width: 1024px) {

@@ -1,4 +1,63 @@
 
+var timer               = 20;
+var msgExpire           =  5;
+var questionExpire      = 20;
+var pageBeingTimed      = false;
+
+var numRight            =  0;
+var numWrong            =  0;
+var currentQuestion     =  0;
+var currentRightAnswer;
+var nextQuestion        =  true;      
+
+var intervalId;
+
+var disableClick;
+var i;
+
+
+
+function delayTimer(delaySecs) {
+    
+    if (disableClick == false) {
+        // we don't have a timer running, so go ahead and set one
+        disableClick = true;
+        console.log("delaySecs is ",delaySecs);
+        timer = delaySecs;
+        console.log("Calling setInterval");
+        intervalId = setInterval(countDown, 1000);
+        console.log("Back from setInterval");
+        
+    } else {
+      console.log("disableClick was ",disableClick);
+    }
+
+}
+     
+
+function countDown() {
+
+    console.log("In countDown, timer is ",timer);
+    if (pageBeingTimed) {
+        $("#myTimer").text("Time Remaining: "+timer);
+    }
+    timer--;
+
+    console.log("In countDown, timer is ",timer);
+    if (pageBeingTimed) {
+        $("#myTimer").text("Time Remaining: "+timer);
+    }
+    if (timer === 0) {
+       console.log("Timer counted down to 0");
+       
+
+       clearInterval(intervalId);
+       disableClick = false;
+    }
+
+}
+
+
 
 var triviaQuestions = [];
     
@@ -77,23 +136,36 @@ function initQuestions(trivia){
  
 }
 
-$(document).ready(function(){
+function initGame() {
+    msgTimer         =  5;
+    questionTimer    = 20;
+    numRight         =  0;
+    numWrong         =  0;
+    currentQuestion  =  0;
 
-
- // Performing GET requests to the Open Trivia DB API and logging the responses to the console
+    console.log("I got here 2");
+    // We'll get some questions via ajax from the Open Trivia DB API 
     $.ajax({
       url: "https://opentdb.com/api.php?amount=20&category=23",
       method: "GET"
     }).done(function(trivia) {
-        // console.log(trivia);
-        initQuestions(trivia);
-        // console.log(triviaQuestions);      
+        console.log(trivia);
+        initQuestions(trivia); //and store the questions and answers in our triviaQuestions object.
+        console.log(triviaQuestions);      
       
     });
 
+    // Until user clicks the "begin" button, we'll hide the questions, answers, and timer displays
     $("#questionsSection").hide();
     $("#answersSection").hide();
+    nextQuestion = false;
+    pageBeingTimed = true;
+    disableClick = false;
+    delayTimer(questionExpire);
+}
 
+$(document).ready(function(){
+    initGame();
 });
 
 
