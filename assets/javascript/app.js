@@ -6,7 +6,7 @@ var pageBeingTimed      = false;
 
 var numRight            =  0;
 var numWrong            =  0;
-var currentQuestion     =  0;
+var currentQuestionNum  =  0;
 var currentRightAnswer;
 var nextQuestion        =  true;      
 
@@ -15,7 +15,11 @@ var intervalId;
 var disableClick;
 var i;
 
+var triviaQuestions = []; /* here's the array of objects to store the questions and answers in*/
 
+/*----------------------------------------------*/
+// Timer Functionality
+/*----------------------------------------------*/
 
 function delayTimer(delaySecs) {
     
@@ -43,10 +47,6 @@ function countDown() {
     }
     timer--;
 
-    console.log("In countDown, timer is ",timer);
-    if (pageBeingTimed) {
-        $("#myTimer").text("Time Remaining: "+timer);
-    }
     if (timer === 0) {
        console.log("Timer counted down to 0");
        
@@ -57,9 +57,9 @@ function countDown() {
 
 }
 
+/* Utility Functions */
 
 
-var triviaQuestions = [];
     
 
 function getRandomInteger(lowerLimit,upperLimit){
@@ -76,6 +76,11 @@ function cleanUpString(inString){
 
         return cleanString;
 }
+
+/*-------------------------------------*/
+/* Here are the functions that get the questions and answers from OPENTDB, the open trivia database */
+/* process the json that is returned, and load up the triviaQuestions array of objects that we'll use */
+/* to play the game. */
 
 function getAnswers(incorrectAnswersArray,correctAnswer,correctPos) {
     var j;
@@ -159,11 +164,78 @@ function initGame() {
     $("#questionsSection").hide();
     $("#answersSection").hide();
     nextQuestion = false;
-    pageBeingTimed = true;
     disableClick = false;
-    delayTimer(questionExpire);
+   
 }
 
+/*-----------------------------------------------*/
+/* Functions to actually play game: present a    */
+/* question and answers, take user's guess,      */
+/* process the guess, keep score, transition to  */
+/* new page.                                     */
+/*-----------------------------------------------*/
+
+function getQandA(currentQuestionNum) {
+
+
+    console.log("in getQandA I have currentQuestionNum = ",currentQuestionNum);
+
+    $("#questionsSection").show();
+    $("#answersSection").show();
+    $("#myQuestion").text(triviaQuestions[currentQuestionNum].question);
+
+    for (var i = 0; i<triviaQuestions[currentQuestionNum].answers.length; i++) {
+        console.log("i is ",i);
+        var answerID = "#answer"+i;
+        console.log("Current answer is ",triviaQuestions[currentQuestionNum].answers[i]);
+        $(answerID).text(triviaQuestions[currentQuestionNum].answers[i]);
+    }
+    currentRightAnswer = triviaQuestions[currentQuestionNum].correctAnswerNum+1;
+    console.log("current right answer is ",currentRightAnswer);
+
+
+
+}
+
+function processStateOfPlay() {
+
+}
+
+
+/*-----------------------------------------------*/
+/* here are the event handling functions.        */
+/*-----------------------------------------------*/
+
+$(".btnLarge").on("click", function() {
+        if (disableClick) {
+
+        } else {
+                switch ($(this).attr('id')){
+                    case "beginButton":
+                        console.log("beginButton clicked");
+                        currentQuestionNum = 0;
+                        getQandA(currentQuestionNum);
+                        processStateOfPlay();
+                        break;
+
+                    case "helpButton":
+                        console.log("helpButton clicked");
+                        break;
+                    
+                    default:
+                        alert("Unknown button!!");
+                        break;
+                }
+                
+        }
+});
+
+
+
+/*-------------------------------------------*/
+/* and here's the on document ready function */
+/* that calls the code to initial the game   */
+/*-------------------------------------------*/
 $(document).ready(function(){
     initGame();
 });
