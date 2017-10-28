@@ -64,8 +64,7 @@ body, html {
 }
 
 .btnLarge {
-    border-radius: 6px;
-    /*border: #000000 2px solid;*/
+    
     border: none;
     line-height: 30px;
     color: #000000;
@@ -75,10 +74,9 @@ body, html {
 }
 
 .btnLarge:hover {
-    color: #00004d;
-    border: #a0004d 2px solid;
-    /*color: #a84434;
-    border: #a84434 2px solid;*/
+    
+    color: #a84434;
+    border: #a84434 2px solid;
 }
 
 /*This footer is for future development*/
